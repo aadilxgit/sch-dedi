@@ -1,6 +1,7 @@
 // components/Plans.js
 import React from 'react';
 import PlanItem from './PlanItem.js';
+import Image from 'next/image'
 
 const plansData = [
   {
@@ -160,18 +161,22 @@ function Plans() {
                     {/* Location Toggler */}
                     <div className="mt-8 flex items-center justify-center gap-4">
                         <button className="px-6 py-2 bg-[#7964e4] text-white font-semibold rounded-sm hover:bg-[#7964e4]/90 transition-all flex items-center gap-2">
-                            <img 
+                            <Image 
                                 src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/1x1/us.svg" 
                                 alt="USA Flag" 
-                                className="w-7 h-5 rounded-sm object-cover"
+                                width={28}
+                                height={20}
+                                className="rounded-sm object-cover"
                             />
                             United States
                         </button>
                         <button className="px-6 py-2 bg-gray-700 text-gray-400 font-semibold rounded-sm relative group flex items-center gap-2">
-                            <img 
+                            <Image 
                                 src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/1x1/de.svg" 
                                 alt="German Flag" 
-                                className="w-7 h-5 rounded-sm object-cover opacity-50"
+                                width={28}
+                                height={20}
+                                className="rounded-sm object-cover opacity-50"
                             />
                             Germany
                             <span className="absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-xs text-gray-300 px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">

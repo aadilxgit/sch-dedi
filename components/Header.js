@@ -20,6 +20,7 @@ import {
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
+import Link from 'next/link'
 
 const hosting = [
   { 
@@ -61,10 +62,10 @@ export default function Header() {
     <header className="bg-gray-900 sticky top-0 z-50 border-b border-gray-800 focus:outline-none">
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
         <div className="flex lg:flex-1">
-          <a href="/" className="-m-1.5 p-1.5 transition-transform hover:scale-105">
+          <Link href="/" className="-m-1.5 p-1.5 transition-transform hover:scale-105">
             <span className="sr-only">SCHost</span>
             <SCHostLogo />
-          </a>
+          </Link>
         </div>
 
         {/* Mobile menu button */}
@@ -135,10 +136,10 @@ export default function Header() {
         <div className="fixed inset-0 z-10" />
         <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-gray-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-700">
           <div className="flex items-center justify-between">
-            <a href="/" className="-m-1.5 p-1.5 focus:outline-none">
+            <Link href="/" className="-m-1.5 p-1.5 focus:outline-none">
               <span className="sr-only">SCHost</span>
               <SCHostLogo />
-            </a>
+            </Link>
             <button
               type="button"
               onClick={() => setMobileMenuOpen(false)}

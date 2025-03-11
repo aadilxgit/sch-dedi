@@ -1,0 +1,197 @@
+'use client'
+
+import { useState } from 'react'
+import {
+  Dialog,
+  DialogPanel,
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
+  Popover,
+  PopoverButton,
+  PopoverGroup,
+  PopoverPanel,
+} from '@headlessui/react'
+import {
+  Bars3Icon,
+  ServerIcon,
+  CloudArrowUpIcon,
+  CpuChipIcon,
+  XMarkIcon,
+} from '@heroicons/react/24/outline'
+import { ChevronDownIcon } from '@heroicons/react/20/solid'
+
+const hosting = [
+  { 
+    name: 'VPS Hosting', 
+    description: 'Virtual private servers with guaranteed resources', 
+    href: '/vps', 
+    icon: CpuChipIcon 
+  },
+  { 
+    name: 'Dedicated Servers', 
+    description: 'Enterprise-grade bare metal servers with full root access', 
+    href: '/dedicated-servers', 
+    icon: ServerIcon 
+  },
+  { 
+    name: 'Web Hosting', 
+    description: 'Reliable shared hosting for websites and applications', 
+    href: '/web-hosting', 
+    icon: CloudArrowUpIcon 
+  },
+]
+
+const company = [
+  { name: 'About Us', href: '/about' },
+  { name: 'Contact Us', href: '/contact' },
+  { name: 'Blog', href: '/blog' },
+]
+
+const SCHostLogo = () => (
+  <span className="text-xl font-bold text-white hover:text-[#7964e4] transition-colors">
+    SCHost
+  </span>
+)
+
+export default function Header() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  return (
+    <header className="bg-gray-900 sticky top-0 z-50 border-b border-gray-800 focus:outline-none">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
+        <div className="flex lg:flex-1">
+          <a href="/" className="-m-1.5 p-1.5 transition-transform hover:scale-105">
+            <span className="sr-only">SCHost</span>
+            <SCHostLogo />
+          </a>
+        </div>
+
+        {/* Mobile menu button */}
+        <div className="flex lg:hidden">
+          <button
+            type="button"
+            onClick={() => setMobileMenuOpen(true)}
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white focus:outline-none"
+          >
+            <span className="sr-only">Open main menu</span>
+            <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+          </button>
+        </div>
+
+        {/* Desktop navigation */}
+        <PopoverGroup className="hidden lg:flex lg:gap-x-12">
+          <Popover className="relative">
+            <PopoverButton className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-white hover:text-[#7964e4] transition-colors focus:outline-none">
+              Hosting Solutions
+              <ChevronDownIcon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
+            </PopoverButton>
+            <PopoverPanel className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-gray-900 shadow-lg ring-1 ring-white/10">
+              <div className="p-4">
+                {hosting.map((item) => (
+                  <div
+                    key={item.name}
+                    className="group relative flex gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-800"
+                  >
+                    <div className="mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-800 group-hover:bg-[#7964e4]">
+                      <item.icon className="h-6 w-6 text-white" aria-hidden="true" />
+                    </div>
+                    <div className="flex-auto">
+                      <a href={item.href} className="block font-semibold text-white">
+                        {item.name}
+                        <span className="absolute inset-0" />
+                      </a>
+                      <p className="mt-1 text-gray-400">{item.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </PopoverPanel>
+          </Popover>
+
+          {company.map((item) => (
+            <a
+              key={item.name}
+              href={item.href}
+              className="text-sm font-semibold leading-6 text-white hover:text-[#7964e4] transition-colors focus:outline-none"
+            >
+              {item.name}
+            </a>
+          ))}
+        </PopoverGroup>
+
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+          <a 
+            href="/login" 
+            className="text-sm font-semibold leading-6 text-white hover:text-[#7964e4] transition-all duration-300 flex items-center gap-1 focus:outline-none"
+          >
+            Log in <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </nav>
+
+      {/* Mobile menu */}
+      <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
+        <div className="fixed inset-0 z-10" />
+        <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-gray-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-700">
+          <div className="flex items-center justify-between">
+            <a href="/" className="-m-1.5 p-1.5 focus:outline-none">
+              <span className="sr-only">SCHost</span>
+              <SCHostLogo />
+            </a>
+            <button
+              type="button"
+              onClick={() => setMobileMenuOpen(false)}
+              className="-m-2.5 rounded-md p-2.5 text-white focus:outline-none"
+            >
+              <span className="sr-only">Close menu</span>
+              <XMarkIcon aria-hidden="true" className="h-6 w-6" />
+            </button>
+          </div>
+          <div className="mt-6 flow-root">
+            <div className="-my-6 divide-y divide-gray-700">
+              <div className="space-y-2 py-6">
+                <Disclosure as="div" className="-mx-3">
+                  <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-white hover:bg-gray-800 focus:outline-none focus:ring-0">
+                    Hosting Solutions
+                    <ChevronDownIcon aria-hidden="true" className="h-5 w-5 flex-none group-data-[open]:rotate-180" />
+                  </DisclosureButton>
+                  <DisclosurePanel className="mt-2 space-y-2">
+                    {hosting.map((item) => (
+                      <DisclosureButton
+                        key={item.name}
+                        as="a"
+                        href={item.href}
+                        className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-white hover:bg-gray-800"
+                      >
+                        {item.name}
+                      </DisclosureButton>
+                    ))}
+                  </DisclosurePanel>
+                </Disclosure>
+
+                {company.map((item) => (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800"
+                  >
+                    {item.name}
+                  </a>
+                ))}
+              </div>
+              <div className="py-6">
+                <a
+                  href="/login"
+                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-white hover:bg-gray-800"
+                >
+                  Log in
+                </a>
+              </div>
+            </div>
+          </div>
+        </DialogPanel>
+      </Dialog>
+    </header>
+  )
+}

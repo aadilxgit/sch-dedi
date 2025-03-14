@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
@@ -13,16 +13,15 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const inter = Inter({ subsets: ["latin"] });
+
 export const metadata = {
-  metadataBase: new URL('https://sch.gitno.de'),
-  title: {
-    default: "SCHost - Premium Dedicated Servers | High Performance Hosting Solutions",
-    template: "SCHOST - Premium Cloud Hosting Services"
-  },
-  description: "Experience unparalleled performance with SCHost's dedicated servers. Enterprise-grade hardware, 24/7 support, and global infrastructure for your hosting needs.",
-  keywords: "dedicated servers, web hosting, bare metal servers, high performance hosting, enterprise hosting, SCHost",
+  metadataBase: new URL("https://sch.gitno.de"),
+  title: "SCHOST",
+  description: "High performance hosting solutions",
+  keywords:
+    "dedicated servers, web hosting, bare metal servers, high performance hosting, enterprise hosting, SCHost",
   author: "SCHost",
-  viewport: "width=device-width, initial-scale=1.0",
   robots: "index, follow",
   openGraph: {
     type: "website",
@@ -40,7 +39,12 @@ export const metadata = {
       },
     ],
   },
-  themeColor: "#7964e4"
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#7964e4",
 };
 
 export default function RootLayout({ children }) {
@@ -59,7 +63,7 @@ export default function RootLayout({ children }) {
         <link rel="mask-icon" href="/favicon.svg" color="#7964e4" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${inter.className} antialiased`}
       >
         <Header />
         {children}

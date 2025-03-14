@@ -52,7 +52,7 @@ const plansData = [
   },
   {
     model: "2X Intel Xeon E5-2670 v3",
-    specs: "2.3GHz Base, 3.1GHz Turbo",
+    specs: "3.1GHz Turbo",
     ram: "128GB DDR4",
     storage: "(8) 1TB SSD",
     bandwidth: "30TB @ 1Gbps",
@@ -75,7 +75,7 @@ const plansData = [
   },
   {
     model: "AMD Ryzen 9 5950X",
-    specs: "3.4GHz Base, 4.9GHz Boost",
+    specs: "4.9GHz Boost",
     ram: "128GB DDR4",
     storage: "(2) 2TB NVMe SSD",
     bandwidth: "50TB @ 1Gbps",
@@ -98,7 +98,7 @@ const plansData = [
   },
   {
     model: "2X Intel Xeon Gold 6248R",
-    specs: "3.0GHz Base, 4.0GHz Turbo",
+    specs: "4.0GHz Turbo",
     ram: "256GB DDR4",
     storage: "(12) 960GB SSD",
     bandwidth: "100TB @ 1Gbps",
@@ -121,7 +121,7 @@ const plansData = [
   },
   {
     model: "AMD EPYC 7742",
-    specs: "2.25GHz Base, 3.4GHz Boost",
+    specs: "3.4GHz Boost",
     ram: "512GB DDR4",
     storage: "(16) 1.92TB NVMe SSD",
     bandwidth: "Unmetered @ 1Gbps",

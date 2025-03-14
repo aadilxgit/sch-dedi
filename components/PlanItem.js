@@ -7,7 +7,7 @@ function PlanItem({ plan }) {
     const [showDetails, setShowDetails] = useState(false);
 
     return (
-        <div className="plan-item grid gap-4 hover:bg-gray-900 transition-all duration-300 p-5 border-b border-gray-700 lg:grid-cols-7 lg:items-center">
+        <div className="plan-item grid gap-4 hover:bg-zinc-900 transition-all duration-300 p-5 border-b border-zinc-700 lg:grid-cols-7 lg:items-center">
             <div className="flex flex-col items-start">
                 <span className="ls font-bold text-left">{plan.model}</span>
                 <span className="ls opacity-70">{plan.specs}</span>
@@ -30,8 +30,8 @@ function PlanItem({ plan }) {
             <div className="flex items-center lg:justify-center pr-2">
                 <div className="flex gap-2 lg:flex-col lg:items-start 2xl:flex-row 2xl:items-center 2xl:justify-end">
                     <button
-                        className="details-button flex items-center gap-2 text-white rounded-md bg-gray-600 px-4 py-2 font-bold 
-                        hover:bg-gray-500 hover:translate-y-[2px] hover:shadow-md hover:scale-[0.98]
+                        className="details-button flex items-center gap-2 text-white rounded-md bg-zinc-600 px-4 py-2 font-bold 
+                        hover:bg-zinc-500 hover:translate-y-[2px] hover:shadow-md hover:scale-[0.98]
                         active:translate-y-[3px] active:shadow-sm
                         transition-all ease-in-out duration-300 whitespace-nowrap max-w-[140px]"
                         onClick={() => setShowDetails(!showDetails)} // Toggle details visibility

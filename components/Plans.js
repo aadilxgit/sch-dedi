@@ -51,7 +51,7 @@ const plansData = [
     },
   },
   {
-    model: "Dual Intel Xeon E5-2670 v3",
+    model: "2X Intel Xeon E5-2670 v3",
     specs: "2.3GHz Base, 3.1GHz Turbo",
     ram: "128GB DDR4",
     storage: "(8) 1TB SSD",
@@ -97,7 +97,7 @@ const plansData = [
     },
   },
   {
-    model: "Dual Intel Xeon Gold 6248R",
+    model: "2X Intel Xeon Gold 6248R",
     specs: "3.0GHz Base, 4.0GHz Turbo",
     ram: "256GB DDR4",
     storage: "(12) 960GB SSD",
@@ -147,46 +147,21 @@ const plansData = [
 
 function Plans() {
     return (
-        <div className="bg-gray-800 text-white">
-            <div className="p-5 py-24 sm:py-32 container mx-auto flex flex-col max-w-[90rem]" id="Plans"> {/* Changed from default container to max-w-[90rem] */}
+        <div className="bg-zinc-800 text-white">
+            <div className="p-5 py-24 sm:py-32 container mx-auto flex flex-col max-w-[100rem]" id="Plans"> {/* Changed from default container to max-w-[100rem] */}
                 <div className="mx-auto max-w-2xl lg:text-center">
                     <h2 className="ls font-semibold text-[#7964e4] text-xl uppercase">Pricing</h2>
                     <p className="mt-2 ls sm:text-6xl text-5xl font-black text-white [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)]">
                         High Performance Bare Metal
                     </p>
-                    <p className="mt-6 text-lg/8 text-gray-300">
+                    <p className="mt-6 text-lg/8 text-zinc-300">
                         Choose from our range of dedicated servers powered by latest generation processors and enterprise-grade hardware.
                     </p>
                     
-                    {/* Location Toggler */}
-                    <div className="mt-8 flex items-center justify-center gap-4">
-                        <button className="px-6 py-2 bg-[#7964e4] text-white font-semibold rounded-sm hover:bg-[#7964e4]/90 transition-all flex items-center gap-2">
-                            <Image 
-                                src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/1x1/us.svg" 
-                                alt="USA Flag" 
-                                width={28}
-                                height={20}
-                                className="rounded-sm object-cover"
-                            />
-                            United States
-                        </button>
-                        <button className="px-6 py-2 bg-gray-700 text-gray-400 font-semibold rounded-sm relative group flex items-center gap-2">
-                            <Image 
-                                src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/1x1/de.svg" 
-                                alt="German Flag" 
-                                width={28}
-                                height={20}
-                                className="rounded-sm object-cover opacity-50"
-                            />
-                            Germany
-                            <span className="absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-xs text-gray-300 px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-                                Coming Soon
-                            </span>
-                        </button>
-                    </div>
+                    
                 </div>
                 <div className="hidden 2xl:grid grid-cols-7 gap-2 p-5 mt-4"> {/* Reduced gap from 4 to 2 */}
-                    <span className="opacity-90 ls font-bold text-center">MODEL</span>
+                    <span className="opacity-90 ls font-bold text-left ml-15 min-w-[280px]">MODEL</span>
                     <span className="opacity-90 ls font-bold text-center">RAM</span>
                     <span className="opacity-90 ls font-bold text-center">STORAGE</span>
                     <span className="opacity-90 ls font-bold text-center">BANDWIDTH</span>
@@ -194,15 +169,15 @@ function Plans() {
                     <span className="opacity-90 ls font-bold text-center">PRICE</span>
                     <span className="opacity-90 ls font-bold text-center"></span>
                 </div>
-                <div className="flex flex-col gap-4 2xl:mt-0 mt-4">
+                <div className="flex flex-col gap-0">  {/* Changed gap-4 to gap-0 */}
                     {plansData.map((plan, index) => (
                         <PlanItem key={index} plan={plan} />
                     ))}
                 </div>
-                 <div className="2xl:hidden hidden lg:flex flex-row justify-between items-center gap-4 hover:bg-gray-700 transition-all duration-300 p-5 border-b border-gray-700">
+                 <div className="2xl:hidden hidden lg:flex flex-row justify-between items-center gap-4 hover:bg-zinc-700 transition-all duration-300 p-5 border-b border-zinc-700">
                         <div className="flex flex-col gap-2">
-                            <div className="flex flex-col items-start">
-                                <span className="ls font-bold text-center">Intel Xeon E3</span>
+                            <div className="flex flex-col items-start min-w-[280px]">
+                                <span className="ls font-bold text-center whitespace-nowrap">Intel Xeon E3</span>
                                 <span className="ls opacity-70">3.9GHz+ — Quick Sync</span>
                             </div>
                             <div className="flex flex-row gap-8 items-center">
@@ -225,7 +200,7 @@ function Plans() {
                         </div>
                         <div className="flex items-center justify-center pr-2">
                             <div className="flex gap-2">
-                                <button className="details-button flex items-center gap-2 text-white rounded-none border-gray-500 border-r-4 border-t-4 bg-gray-600 px-4 py-2 font-bold hover:bg-gray-500 hover:text-white hover:translate-x-1 transition-all duration-300 whitespace-nowrap max-w-[140px]" data-plan="xeon-e3">
+                                <button className="details-button flex items-center gap-2 text-white rounded-none border-zinc-500 border-r-4 border-t-4 bg-zinc-600 px-4 py-2 font-bold hover:bg-zinc-500 hover:text-white hover:translate-x-1 transition-all duration-300 whitespace-nowrap max-w-[140px]" data-plan="xeon-e3">
                                     <span>Details</span>
                                 </button>
                                 <a target="_blank" href="/about/dedicated/xeon-e3">

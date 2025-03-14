@@ -11,7 +11,7 @@ const FAQItem = ({ question, answer }) => {
   }, [isOpen]);
 
   return (
-    <li className="border-t border-gray-700">
+    <li className="border-t border-zinc-700">
       <button
         className="relative flex gap-2 items-center w-full py-5 text-base font-semibold text-left md:text-lg text-white font-sans"
         aria-expanded={isOpen}
@@ -84,7 +84,7 @@ export default function FAQSection() {
   ];
 
   return (
-    <div className="bg-gray-800 py-24 px-8">
+    <div className="bg-zinc-800 py-24 px-8">
       <div className="max-w-5xl mx-auto flex flex-col md:flex-row gap-12">
         <div className="flex flex-col text-left basis-1/2">
           <p className="ls font-semibold text-[#7964e4] text-xl uppercase">

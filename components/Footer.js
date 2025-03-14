@@ -2,12 +2,12 @@ import React from 'react';
 
 export default function Footer() {
   return (
-    <footer className="pt-16 pb-6 bg-gray-900 border-t border-white/20 footer-section">
+    <footer className="pt-16 pb-6 bg-zinc-900 border-t border-white/20 footer-section">
       {/* Inline custom CSS to replicate @apply styles */}
       <style>{`
         .footer-link {
           position: relative;
-          color: #9ca3af; /* text-gray-400 */
+          color: #9ca3af; /* text-zinc-400 */
           transition: color 0.3s;
           display: inline-block;
         }
@@ -42,8 +42,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Column 1 */}
           <div>
-            <div className="text-gray-400 text-2xl font-bold text-primary mb-4">SCHOST</div>
-            <p className="text-gray-400 mb-6">
+            <div className="text-zinc-400 text-2xl font-bold text-primary mb-4">SCHOST</div>
+            <p className="text-zinc-400 mb-6">
               Whether you run an e-commerce site or a web business, you want to attract as many visitors as possible.
               Our servers provide the performance you need.
             </p>
@@ -132,7 +132,7 @@ export default function Footer() {
         </div>
 
         <div className="pt-6 border-t border-white/20 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-400 text-sm">&copy; 2024 SCHOST. All rights reserved</p>
+          <p className="text-zinc-400 text-sm">&copy; 2024 SCHOST. All rights reserved</p>
           <div className="flex gap-6">
             <a href="#" className="footer-link text-sm">Terms &amp; Condition</a>
             <a href="#" className="footer-link text-sm">Privacy Policy</a>

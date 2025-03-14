@@ -48,14 +48,14 @@ const features = [
 
 export default function FeatureSection() {
   return (
-    <div className="bg-gray-900 py-24 sm:py-32">
+    <div className="bg-zinc-900 py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:text-center">
           <h2 className="ls font-semibold text-[#7964e4] text-xl uppercase">Why Choose Us</h2>
           <p className="mt-2 ls sm:text-6xl text-5xl font-black text-white [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)]">
             Enterprise Grade Infrastructure
           </p>
-          <p className="mt-6 text-lg/8 text-gray-300">
+          <p className="mt-6 text-lg/8 text-zinc-300">
             Experience unparalleled performance and reliability with our dedicated hosting solutions backed by enterprise-grade hardware and 24/7 support.
           </p>
         </div>
@@ -69,7 +69,7 @@ export default function FeatureSection() {
                   </div>
                   {feature.name}
                 </dt>
-                <dd className="mt-2 text-base/7 text-gray-300">{feature.description}</dd>
+                <dd className="mt-2 text-base/7 text-zinc-300">{feature.description}</dd>
               </div>
             ))}
           </dl>

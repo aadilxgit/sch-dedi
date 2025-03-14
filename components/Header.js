@@ -51,7 +51,7 @@ const company = [
 
 const SCHostLogo = () => (
   <span className="text-xl font-bold text-white hover:text-[#7964e4] transition-colors">
-    SCHost
+    SCHOST
   </span>
 )
 
@@ -59,11 +59,11 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="bg-gray-900 sticky top-0 z-50 border-b border-gray-800 focus:outline-none">
+    <header className="bg-zinc-900 sticky top-0 z-50 focus:outline-none">
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5 transition-transform hover:scale-105">
-            <span className="sr-only">SCHost</span>
+            <span className="sr-only">SCHOST</span>
             <SCHostLogo />
           </Link>
         </div>
@@ -85,16 +85,16 @@ export default function Header() {
           <Popover className="relative">
             <PopoverButton className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-white hover:text-[#7964e4] transition-colors focus:outline-none">
               Hosting Solutions
-              <ChevronDownIcon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
+              <ChevronDownIcon className="h-5 w-5 flex-none text-zinc-400" aria-hidden="true" />
             </PopoverButton>
-            <PopoverPanel className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-gray-900 shadow-lg ring-1 ring-white/10">
+            <PopoverPanel className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-zinc-900 shadow-lg ring-1 ring-white/10">
               <div className="p-4">
                 {hosting.map((item) => (
                   <div
                     key={item.name}
-                    className="group relative flex gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-800"
+                    className="group relative flex gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-zinc-800"
                   >
-                    <div className="mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-800 group-hover:bg-[#7964e4]">
+                    <div className="mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-zinc-800 group-hover:bg-[#7964e4]">
                       <item.icon className="h-6 w-6 text-white" aria-hidden="true" />
                     </div>
                     <div className="flex-auto">
@@ -102,7 +102,7 @@ export default function Header() {
                         {item.name}
                         <span className="absolute inset-0" />
                       </a>
-                      <p className="mt-1 text-gray-400">{item.description}</p>
+                      <p className="mt-1 text-zinc-400">{item.description}</p>
                     </div>
                   </div>
                 ))}
@@ -134,7 +134,7 @@ export default function Header() {
       {/* Mobile menu */}
       <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
         <div className="fixed inset-0 z-10" />
-        <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-gray-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-700">
+        <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-zinc-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-zinc-700">
           <div className="flex items-center justify-between">
             <Link href="/" className="-m-1.5 p-1.5 focus:outline-none">
               <span className="sr-only">SCHost</span>
@@ -150,10 +150,10 @@ export default function Header() {
             </button>
           </div>
           <div className="mt-6 flow-root">
-            <div className="-my-6 divide-y divide-gray-700">
+            <div className="-my-6 divide-y divide-zinc-700">
               <div className="space-y-2 py-6">
                 <Disclosure as="div" className="-mx-3">
-                  <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-white hover:bg-gray-800 focus:outline-none focus:ring-0">
+                  <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-white hover:bg-zinc-800 focus:outline-none focus:ring-0">
                     Hosting Solutions
                     <ChevronDownIcon aria-hidden="true" className="h-5 w-5 flex-none group-data-[open]:rotate-180" />
                   </DisclosureButton>
@@ -163,7 +163,7 @@ export default function Header() {
                         key={item.name}
                         as="a"
                         href={item.href}
-                        className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-white hover:bg-gray-800"
+                        className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-white hover:bg-zinc-800"
                       >
                         {item.name}
                       </DisclosureButton>
@@ -175,7 +175,7 @@ export default function Header() {
                   <a
                     key={item.name}
                     href={item.href}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-zinc-800"
                   >
                     {item.name}
                   </a>
@@ -184,7 +184,7 @@ export default function Header() {
               <div className="py-6">
                 <a
                   href="/login"
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-white hover:bg-gray-800"
+                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-white hover:bg-zinc-800"
                 >
                   Log in
                 </a>

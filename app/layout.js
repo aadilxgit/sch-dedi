@@ -42,15 +42,19 @@ export const metadata = {
 };
 
 export const viewport = {
-  width: "device-width",
+  themeColor: '#7964e4',
+  width: 'device-width',
   initialScale: 1,
-  themeColor: "#7964e4",
+  colorScheme: 'dark',
+  viewportFit: 'cover'
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className="bg-zinc-900">
       <head>
+        <meta name="theme-color" content="#7964e4" />
+        <meta name="color-scheme" content="dark" />
         <style>{`
           :root {
             --primary-color: #7964e4;
@@ -62,9 +66,7 @@ export default function RootLayout({ children }) {
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="mask-icon" href="/favicon.svg" color="#7964e4" />
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inter.className} antialiased`}
-      >
+      <body className={`${geistSans.variable} ${geistMono.variable} ${inter.className} antialiased bg-zinc-900`}>
         <Header />
         {children}
         <Footer />

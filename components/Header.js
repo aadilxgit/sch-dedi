@@ -17,6 +17,7 @@ import {
   ServerIcon,
   CloudArrowUpIcon,
   CpuChipIcon,
+  PlayCircleIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
@@ -40,6 +41,12 @@ const hosting = [
     description: 'Reliable shared hosting for websites and applications', 
     href: '/web-hosting', 
     icon: CloudArrowUpIcon 
+  },
+  { 
+    name: 'Game Hosting', 
+    description: 'Low-latency game servers with DDoS protection', 
+    href: '/game-hosting', 
+    icon: PlayCircleIcon  
   },
 ]
 

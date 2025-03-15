@@ -152,7 +152,7 @@ function Plans() {
                 <div className="mx-auto max-w-2xl lg:text-center">
                     <h2 className="ls font-semibold text-[#7964e4] text-xl uppercase">Pricing</h2>
                     <p className="mt-2 ls sm:text-6xl text-5xl font-black text-white [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)]">
-                        High Performance Bare Metal
+                        Our Dedicated Bare Metal Servers
                     </p>
                     <p className="mt-6 text-lg/8 text-zinc-300">
                         Choose from our range of dedicated servers powered by latest generation processors and enterprise-grade hardware.

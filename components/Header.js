@@ -27,7 +27,7 @@ const hosting = [
   { 
     name: 'VPS Hosting', 
     description: 'Virtual private servers with guaranteed resources', 
-    href: '/vps', 
+    href: '/vps-servers', 
     icon: CpuChipIcon 
   },
   { 
@@ -66,7 +66,7 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="bg-zinc-900 sticky top-0 z-50 focus:outline-none">
+    <header className="bg-zinc-950 sticky top-0 z-50 focus:outline-none">
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5 transition-transform hover:scale-105">

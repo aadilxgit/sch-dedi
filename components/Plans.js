@@ -147,10 +147,12 @@ const plansData = [
 
 function Plans() {
     return (
-        <div className="bg-zinc-800 text-white">
-            <div className="p-5 py-24 sm:py-32 container mx-auto flex flex-col max-w-[100rem]" id="Plans"> {/* Changed from default container to max-w-[100rem] */}
+        <div className="bg-zinc-950 text-white">
+            <div className="p-5 py-24 sm:py-6 container mx-auto flex flex-col max-w-[100rem]" id="Plans"> {/* Changed from default container to max-w-[100rem] */}
                 <div className="mx-auto max-w-2xl lg:text-center">
-                    <h2 className="ls font-semibold text-[#7964e4] text-xl uppercase">Pricing</h2>
+                <span className="text-[#7964e4] text-xl uppercase tracking-[0.2em] mb-4 block font-semibold">
+                                    Pricing
+                                </span>
                     <p className="mt-2 ls sm:text-6xl text-5xl font-black text-white [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)]">
                         Our Dedicated Bare Metal Servers
                     </p>

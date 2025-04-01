@@ -166,7 +166,7 @@ const LTOPanel = () => (
         </p>
         <button 
             className="bg-[#7964e4] text-white px-6 py-3 rounded-md font-bold hover:bg-[#6753d3] transition-all"
-            onClick={() => window.location.href = 'https://billing.yourdomain.com'}
+            onClick={() => window.location.href = 'https://my.snakecrafthosting.com'}
         >
             View LTO Offers
         </button>
@@ -231,13 +231,13 @@ const PricingSection = () => {
                     <div className="flex flex-col gap-3 w-full md:flex-row md:justify-end">
                         <button 
                             className="w-full md:w-auto bg-transparent border border-[#7964e4] text-white px-4 py-2 rounded-md font-medium hover:bg-[#7964e4]/10 transition-all"
-                            onClick={() => window.location.href = 'https://billing.yourdomain.com'}
+                            onClick={() => window.location.href = 'https://my.snakecrafthosting.com'}
                         >
                             View Plans
                         </button>
                         <button 
                             className="w-full md:w-auto bg-[#7964e4] text-white px-6 py-2 rounded-md font-medium hover:bg-[#6753d3] transition-all"
-                            onClick={() => window.location.href = 'https://deploy.yourdomain.com'}
+                            onClick={() => window.location.href = 'https://my.snakecrafthosting.com'}
                         >
                             Deploy Now
                         </button>
@@ -432,13 +432,13 @@ const PricingSection = () => {
                         <div className="flex flex-col md:flex-row gap-3">
                             <button 
                                 className="w-full md:w-auto bg-transparent border border-[#7964e4] text-white px-4 py-2 rounded-md font-medium hover:bg-[#7964e4]/10 transition-all"
-                                onClick={() => window.location.href = 'https://billing.yourdomain.com'}
+                                onClick={() => window.location.href = 'https://my.snakecrafthosting.com'}
                             >
                                 View Plans
                             </button>
                             <button 
                                 className="w-full md:w-auto bg-[#7964e4] text-white px-6 py-2 rounded-md font-medium hover:bg-[#6753d3] transition-all"
-                                onClick={() => window.location.href = 'https://deploy.yourdomain.com'}
+                                onClick={() => window.location.href = 'https://my.snakecrafthosting.com'}
                             >
                                 Deploy Now
                             </button>
@@ -533,7 +533,7 @@ const PricingSection = () => {
                         </p>
                         <button 
                             className="bg-[#7964e4] text-white px-6 py-3 rounded-md font-bold hover:bg-[#6753d3] transition-all"
-                            onClick={() => window.location.href = 'https://billing.yourdomain.com'}
+                            onClick={() => window.location.href = 'https://my.snakecrafthosting.com'}
                         >
                             View LTO Offers
                         </button>

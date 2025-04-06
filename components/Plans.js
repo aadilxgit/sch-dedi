@@ -142,13 +142,13 @@ const plansData = [
       setupTime: "Usually within 24-48 hours",
     },
   },
-    // Add more plan objects here as needed
+   
 ];
 
 function Plans() {
     return (
         <div className="bg-zinc-950 text-white">
-            <div className="p-5 py-24 sm:py-6 container mx-auto flex flex-col max-w-[100rem]" id="Plans"> {/* Changed from default container to max-w-[100rem] */}
+            <div className="p-5 py-24 sm:py-6 container mx-auto flex flex-col max-w-[100rem]" id="Plans"> {}
                 <div className="mx-auto max-w-2xl lg:text-center">
                 <span className="text-[#7964e4] text-xl uppercase tracking-[0.2em] mb-4 block font-semibold">
                                     Pricing
@@ -162,7 +162,7 @@ function Plans() {
                     
                     
                 </div>
-                <div className="hidden 2xl:grid grid-cols-7 gap-2 p-5 mt-4"> {/* Reduced gap from 4 to 2 */}
+                <div className="hidden 2xl:grid grid-cols-7 gap-2 p-5 mt-4"> {}
                     <span className="opacity-90 ls font-bold text-left ml-15 min-w-[280px]">MODEL</span>
                     <span className="opacity-90 ls font-bold text-center">RAM</span>
                     <span className="opacity-90 ls font-bold text-center">STORAGE</span>
@@ -171,7 +171,7 @@ function Plans() {
                     <span className="opacity-90 ls font-bold text-center">PRICE</span>
                     <span className="opacity-90 ls font-bold text-center"></span>
                 </div>
-                <div className="flex flex-col gap-0">  {/* Changed gap-4 to gap-0 */}
+                <div className="flex flex-col gap-0">  {}
                     {plansData.map((plan, index) => (
                         <PlanItem key={index} plan={plan} />
                     ))}

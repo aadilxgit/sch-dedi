@@ -34,7 +34,7 @@ function PlanItem({ plan }) {
                         hover:bg-zinc-500 hover:translate-y-[2px] hover:shadow-md hover:scale-[0.98]
                         active:translate-y-[3px] active:shadow-sm
                         transition-all ease-in-out duration-300 whitespace-nowrap max-w-[140px]"
-                        onClick={() => setShowDetails(!showDetails)} // Toggle details visibility
+                        onClick={() => setShowDetails(!showDetails)} 
                     >
                         <span>Details</span>
                     </button>
@@ -54,7 +54,7 @@ function PlanItem({ plan }) {
                     </a>
                 </div>
             </div>
-            {/* Conditional rendering of PlanDetails */}
+            {}
             {showDetails && <PlanDetails plan={plan} />}
         </div>
     );

@@ -3,7 +3,7 @@ import React from 'react';
 export default function Footer() {
   return (
     <footer className="pt-16 pb-6 bg-zinc-950 border-t border-white/20 footer-section">
-      {/* Inline custom CSS to replicate @apply styles */}
+      {}
       <style>{`
         .footer-link {
           position: relative;

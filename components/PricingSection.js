@@ -553,17 +553,17 @@ const PricingSection = () => {
     );
 };
 
-const violet500 = '#7964e4';  // Your primary purple
-const violet700 = '#6753d3';  // Darker shade for hover
-const violet900 = '#5342c2';  // Even darker shade
+const violet500 = '#7964e4';  
+const violet700 = '#6753d3';  
+const violet900 = '#5342c2'; 
 const zinc900 = '#18181b';
 const zinc800 = '#2b2b2b';
 const zinc700 = '#3f3f46';
-const errorRed = '#7964e4';   // Replace red with purple
+const errorRed = '#7964e4';   
 const errorRedHover = '#6753d3';
 const errorRedBorder = '#8d7be8';
 const errorRedHoverDarker = '#5342c2';
-const errorBgLight = '#eceafe';  // Light purple background
+const errorBgLight = '#eceafe'; 
 const white = '#FFFFFF';
 const white80 = 'rgba(255, 255, 255, 0.8)';
 const white60 = 'rgba(255, 255, 255, 0.6)';
@@ -577,7 +577,7 @@ const darkBgHoverLighter = '#232323';
 
 const pricingSectionStyles = {
     pricingSectionContainer: {
-        backgroundColor: 'rgb(9, 9, 11)', // zinc-950
+        backgroundColor: 'rgb(9, 9, 11)', 
     },
     sectionTitleContainer: {
     },
@@ -596,12 +596,12 @@ const pricingSectionStyles = {
     },
     locationButton: {
         backgroundColor: 'rgba(35, 35, 35, 0.1)',
-        border: `2px solid ${white10}`, // Fix: Use template literal
+        border: `2px solid ${white10}`, 
         borderRadius: '0.375rem',
         padding: '1rem 3rem',
         fontSize: '1.125rem',
         lineHeight: '1.75rem',
-        transition: 'all 0.3s', // Fix: Use 'all' instead of 'colors'
+        transition: 'all 0.3s', 
         color: white,
         display: 'flex',
         flexDirection: 'row',
@@ -707,8 +707,8 @@ const pricingSectionStyles = {
         gap: '0.5rem',
         transition: 'all 0.3s',
         borderRadius: '0.375rem',
-        backgroundColor: 'rgba(203, 42, 61, 0.7)', // Error red with opacity for selected
-        borderColor: errorRedBorder, // Error red border for selected
+        backgroundColor: 'rgba(203, 42, 61, 0.7)',
+        borderColor: errorRedBorder, 
         ':hover': {
             backgroundColor: darkBgHover,
             borderColor: errorRedBorder,
@@ -803,7 +803,7 @@ const pricingSectionStyles = {
     planButtons: {
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'flex-end', // Align to right
+        justifyContent: 'flex-end', 
         width: '100%'
     },
     moreInfoButton: {
@@ -815,7 +815,7 @@ const pricingSectionStyles = {
         paddingBottom: '0.75rem',
         fontWeight: 'bold',
         backgroundColor: errorRed,
-        '&:hover': {  // Fix: Use & for pseudo-classes
+        '&:hover': {  
             backgroundColor: errorRedHoverDarker,
             color: white,
             transform: 'translateX(0.25rem)',
@@ -861,7 +861,7 @@ const pricingSectionStyles = {
             backgroundColor: errorRed,
             color: white,
         },
-        borderRadius: '0 0.5rem 0 0', // bottom-left and top-right rounded
+        borderRadius: '0 0.5rem 0 0', 
     },
     specSlidersContainer: {
         flexDirection: 'col',
@@ -936,7 +936,7 @@ const pricingSectionStyles = {
         },
         transition: 'all 0.3s',
     },
-    // Add this to your styles object
+   
     sliderStyles: {
         '& input[type="range"]': {
             WebkitAppearance: 'none',
@@ -972,7 +972,7 @@ const pricingSectionStyles = {
         border: `1px solid ${violet500}`,
         borderRadius: '0.5rem',
         transition: 'all 0.3s',
-        height: '100%', // Make it full height
+        height: '100%', 
         display: 'flex',
         flexDirection: 'column',
     },

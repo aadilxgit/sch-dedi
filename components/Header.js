@@ -75,7 +75,7 @@ export default function Header() {
           </Link>
         </div>
 
-        {/* Mobile menu button */}
+        {/* Mobile menu button*/}
         <div className="flex lg:hidden">
           <button
             type="button"
@@ -87,7 +87,7 @@ export default function Header() {
           </button>
         </div>
 
-        {/* Desktop navigation */}
+        {/* Desktop nav */}
         <PopoverGroup className="hidden lg:flex lg:gap-x-12">
           <Popover className="relative">
             <PopoverButton className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-white hover:text-[#7964e4] transition-colors focus:outline-none">

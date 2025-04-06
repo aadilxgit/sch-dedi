@@ -7,20 +7,19 @@ const FAQItem = ({ question, answer }) => {
   const [maxHeight, setMaxHeight] = useState('0px');
 
   useEffect(() => {
-    setMaxHeight(isOpen ? `${contentRef.current.scrollHeight}px` : '0px'); // Fixed string literal
+    setMaxHeight(isOpen ? `${contentRef.current.scrollHeight}px` : '0px'); 
   }, [isOpen]);
 
   return (
-    <li className="border-b border-zinc-800/20"> {/* Added border bottom for separation */}
+    <li className="border-b border-zinc-800/20"> {}
       <button
         className="relative flex items-center w-full py-4 text-base font-semibold text-left md:text-lg text-white font-sans"
         aria-expanded={isOpen}
         onClick={() => setIsOpen(!isOpen)}
       >
-        <div className="w-[85%] mx-auto flex justify-between items-center"> {/* New wrapper div for alignment */}
+        <div className="w-[85%] mx-auto flex justify-between items-center"> {}
           <span className="flex-1">{question}</span>
           {isOpen ? (
-            // Minus icon when open
             <svg 
               xmlns="http://www.w3.org/2000/svg" 
               className="w-6 h-6 ml-auto" 
@@ -31,7 +30,6 @@ const FAQItem = ({ question, answer }) => {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 12H4" />
             </svg>
           ) : (
-            // Plus icon when closed
             <svg 
               xmlns="http://www.w3.org/2000/svg" 
               className="w-6 h-6 ml-auto" 
@@ -49,7 +47,7 @@ const FAQItem = ({ question, answer }) => {
         className="transition-all duration-300 ease-in-out overflow-hidden"
         style={{ maxHeight }}
       >
-        <div className="pb-5 leading-relaxed text-white font-sans w-[85%] mx-auto"> {/* Added width and margin */}
+        <div className="pb-5 leading-relaxed text-white font-sans w-[85%] mx-auto"> {}
           <div className="space-y-2">{answer}</div>
         </div>
       </div>

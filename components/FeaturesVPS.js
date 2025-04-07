@@ -21,9 +21,9 @@ const features = [
     icon: CpuChipIcon,
   },
   {
-    name: 'High Availability',
+    name: 'Service Level Agreement',
     description:
-      'Benefit from enterprise-grade infrastructure with redundant systems. Our network and storage setup guarantees 99.9% service availability.',
+      'We guarantee 99.95% uptime for your VPS infrastructure through our comprehensive SLA, ensuring reliable service for your applications.',
     icon: ArrowPathIcon,
   },
   {
@@ -33,9 +33,9 @@ const features = [
     icon: BoltIcon,
   },
   {
-    name: 'Advanced Security',
+    name: 'Enterprise Security',
     description:
-      'Stay protected with enterprise DDoS mitigation and automated backups. Enhanced security features include private networking and regular updates.',
+      'Enterprise-grade DDoS protection and secure isolated environment keep your VPS protected against threats.',
     icon: ShieldCheckIcon,
   },
   {

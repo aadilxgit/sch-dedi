@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import {
   Dialog,
   DialogPanel,
@@ -64,10 +64,28 @@ const SCHostLogo = () => (
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY
+      setIsScrolled(scrollPosition > 50)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
-    <header className="bg-zinc-950 sticky top-0 z-50 focus:outline-none">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
+    <header 
+      className={`
+        fixed top-0 w-full z-50 transition-all duration-300
+        ${isScrolled 
+          ? 'bg-zinc-950/60 border-b border-white/5 backdrop-blur-xl backdrop-saturate-150' 
+          : 'bg-transparent border-b border-transparent'}
+      `}
+    >
+      <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8 relative z-10">
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5 transition-transform hover:scale-105">
             <span className="sr-only">SCHOST</span>
@@ -75,7 +93,6 @@ export default function Header() {
           </Link>
         </div>
 
-        {/* Mobile menu button*/}
         <div className="flex lg:hidden">
           <button
             type="button"
@@ -87,7 +104,6 @@ export default function Header() {
           </button>
         </div>
 
-        {/* Desktop nav */}
         <PopoverGroup className="hidden lg:flex lg:gap-x-12">
           <Popover className="relative">
             <PopoverButton className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-white hover:text-[#7964e4] transition-colors focus:outline-none">
@@ -138,10 +154,9 @@ export default function Header() {
         </div>
       </nav>
 
-      {/* Mobile menu */}
       <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
         <div className="fixed inset-0 z-10" />
-        <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-zinc-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-zinc-700">
+        <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-zinc-950/80 backdrop-blur-xl backdrop-saturate-150 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-zinc-700/50">
           <div className="flex items-center justify-between">
             <Link href="/" className="-m-1.5 p-1.5 focus:outline-none">
               <span className="sr-only">SCHost</span>

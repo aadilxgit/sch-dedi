@@ -1,7 +1,7 @@
 "use client";
 import { useRef } from 'react';
 import { useFrame } from "@react-three/fiber";
-import { CPUModel } from "./Cpu3d";
+import { CPUModel } from "./CPUamd";  
 import { OrbitControls } from "@react-three/drei";
 
 export default function CPUWithMouseTracking() {
@@ -9,7 +9,7 @@ export default function CPUWithMouseTracking() {
 
     useFrame(() => {
         if (modelRef.current) {
-            modelRef.current.rotation.y += 0.005;
+            modelRef.current.rotation.y += 0.02;
         }
     });
 
@@ -17,15 +17,19 @@ export default function CPUWithMouseTracking() {
         <group>
             <OrbitControls 
                 enableZoom={false}
+                enablePan={false}
                 minPolarAngle={Math.PI / 4}
                 maxPolarAngle={Math.PI / 1.5}
+                enableRotate={true}
+                rotateSpeed={0.5}
+                dampingFactor={0.1}
+                enableDamping={true}
             />
-            <group rotation={[Math.PI / 6, Math.PI / 4, 0]}>
-                <group scale={[100, 100, 100]}>
+            <group rotation={[12, 0, 0]}>
+                <group scale={[8.5, 8.5, 8.5]}>  
                     <CPUModel 
-                    ref={modelRef} 
+                        ref={modelRef}
                     />
-                    
                 </group>
             </group>
         </group>

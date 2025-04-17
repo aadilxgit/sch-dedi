@@ -3,7 +3,7 @@ import {
   ArrowPathIcon, 
   CpuChipIcon, 
   BoltIcon, 
-  ShieldCheckIcon, 
+  ServerStackIcon,  // Add this import
   CommandLineIcon 
 } from '@heroicons/react/24/outline'
 
@@ -33,10 +33,10 @@ const features = [
     icon: BoltIcon,
   },
   {
-    name: 'Enterprise Security',
+    name: 'Premium VPS',
     description:
-      'Enterprise-grade DDoS protection and secure isolated environment keep your VPS protected against threats.',
-    icon: ShieldCheckIcon,
+      'Experience superior performance with dedicated CPU core allocation. Each VPS is equipped with exclusive processing power for consistent workload handling.',
+    icon: ServerStackIcon,  // Changed from ShieldCheckIcon to ServerStackIcon
   },
   {
     name: 'Full Root Access',
@@ -49,19 +49,12 @@ const features = [
 export default function FeaturesVPS() {
   return (
     <div className="bg-zinc-950">
-      <div className="p-5 py-24 container mx-auto flex flex-col gap-12 px-[44px]">
+      <div className="p-5  container mx-auto flex flex-col gap-12 px-[44px]">
         <div className="mx-auto max-w-2xl lg:text-center mb-8">
           <span className="text-[#7964e4] text-xl uppercase tracking-[0.2em] mb-4 block font-semibold">
-            Why Choose Our VPS
+            Why Choose Our VPS ?
           </span>
-          <p className="mt-2 ls sm:text-6xl text-5xl font-black text-white [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)]">
-            Powerful Virtual Infrastructure
-          </p>
-          <p className="mt-6 text-lg/8 text-zinc-300">
-            Experience the perfect balance of performance, flexibility, and control with our VPS hosting solutions.
-          </p>
-        </div>
-
+         </div>
         <div className="grid md:grid-cols-3 gap-12 z-10">
           {features.map((feature) => (
             <div key={feature.name} className="flex flex-col gap-2">

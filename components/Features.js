@@ -52,7 +52,7 @@ export default function FeatureSection() {
       <div className="p-5 py-24 container mx-auto flex flex-col gap-12 px-[44px]">
         <div className="mx-auto max-w-2xl lg:text-center mb-8">
         <span className="text-[#7964e4] text-xl uppercase tracking-[0.2em] mb-4 block font-semibold">
-                                    Why Choose Us
+                                    Why Choose Us?
                                 </span>
           <p className="mt-2 ls sm:text-6xl text-5xl font-black text-white [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)]">
             Enterprise Grade Infrastructure

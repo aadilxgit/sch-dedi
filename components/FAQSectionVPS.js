@@ -72,14 +72,6 @@ export default function FAQSectionVPS() {
     {
       question: 'Can I upgrade my VPS resources?',
       answer: 'Yes, you can easily scale your VPS resources (CPU, RAM, storage) up or down based on your needs. Resource upgrades are applied instantly with minimal to no downtime, ensuring your services remain available.'
-    },
-    {
-      question: 'What security measures are included?',
-      answer: 'Each VPS comes with DDoS protection, isolated network environment, automated backups, and regular security patches. We also provide a secure control panel and firewall management tools for additional protection.'
-    },
-    {
-      question: 'Do you offer managed VPS services?',
-      answer: 'Yes, we provide both managed and unmanaged VPS options. With managed services, our team handles server maintenance, security updates, and monitoring, allowing you to focus on your applications.'
     }
   ];
 
@@ -88,7 +80,7 @@ export default function FAQSectionVPS() {
       <div className="p-5 py-24 container mx-auto flex flex-col gap-12 px-[44px]">
         <div className="mx-auto max-w-2xl lg:text-center mb-8">
           <span className="text-[#7964e4] text-xl uppercase tracking-[0.2em] mb-4 block font-semibold">
-            VPS Hosting FAQ
+            FAQs
           </span>
           <p className="mt-2 ls sm:text-6xl text-5xl font-black text-white [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)]">
             Frequently Asked Questions

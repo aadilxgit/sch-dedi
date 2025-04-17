@@ -1,7 +1,6 @@
-// src/components/PlanItem.js
 "use client"
 import React, { useState } from 'react';
-import PlanDetails from './PlanDetails.js'; // Corrected import path
+import PlanDetails from './PlanDetails.js'; 
 
 function PlanItem({ plan }) {
     const [showDetails, setShowDetails] = useState(false);

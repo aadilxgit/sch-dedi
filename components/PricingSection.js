@@ -1,16 +1,12 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 
-// --- Configuration Data ---
-
-// VPS Categories
 const categoriesData = [
   { name: 'Value', value: 'value' },
-  { name: 'Premium', value: 'ryzen' }, // value 'ryzen' signifies Premium
+  { name: 'Premium', value: 'ryzen' }, 
   { name: 'LTO', value: 'lto' }
 ];
 
-// Value KVM VPS Plans Data (Smallest plan first is important)
 const valuePlans = [
   { name: '2GB Value KVM VPS', cores: 2, memory: 2, storage: 25, bandwidth: 2, price: 5.00, storageType: 'SSD' },
   { name: '4GB Value KVM VPS', cores: 2, memory: 4, storage: 50, bandwidth: 3, price: 9.00, storageType: 'SSD' },
@@ -22,7 +18,6 @@ const valuePlans = [
   { name: '32GB Value KVM VPS', cores: 16, memory: 32, storage: 400, bandwidth: 16, price: 65.00, storageType: 'SSD' }
 ];
 
-// Premium (Ryzen) KVM VPS Plans Data (Smallest plan first is important)
 const premiumPlans = [
   { name: '2GB Premium KVM VPS', cores: 1, memory: 2, storage: 25, bandwidth: 2, price: 9.00, storageType: 'NVMe' },
   { name: '4GB Premium KVM VPS', cores: 1, memory: 4, storage: 50, bandwidth: 3, price: 17.00, storageType: 'NVMe' },
@@ -34,7 +29,6 @@ const premiumPlans = [
   { name: '32GB Premium KVM VPS', cores: 8, memory: 32, storage: 400, bandwidth: 16, price: 129.00, storageType: 'NVMe' }
 ];
 
-// Define the absolute min/max for the slider TRACKS
 const sliderTrackRanges = {
   cpuCores: { min: 0, max: 16 },
   memoryGB: { min: 0, max: 32 },
@@ -42,17 +36,15 @@ const sliderTrackRanges = {
   bandwidthTB: { min: 0, max: 16 },
 };
 
-// Value Node Hardware Specs
 const valueNodeSpecs = {
     cpu: 'AMD EPYC 7542', cores: 'Shared', ram: 'DDR4-2666MHz RAM', storage: 'RAID 1 U.2 Storage', network: '10Gbps Shared Uplink',
 };
-// Premium Node Hardware Specs
+
 const premiumNodeSpecs = {
     cpu: 'AMD Ryzen 9 7950X', cores: 'Dedicated', ram: 'DDR5-3600MHz RAM', storage: 'RAID 1 NVMe Storage', network: '10Gbps Shared Uplink',
 };
 
-// --- Utility Functions ---
-const specNameToDisplayName = (specName) => { /* ... no change ... */
+const specNameToDisplayName = (specName) => { 
     switch (specName) {
         case 'cpuCores': return 'CPU Cores';
         case 'memoryGB': return 'Memory';
@@ -62,7 +54,7 @@ const specNameToDisplayName = (specName) => { /* ... no change ... */
         default: return '';
     }
 };
-const getSpecUnit = (specName) => { /* ... no change ... */
+const getSpecUnit = (specName) => { 
     switch (specName) {
         case 'memoryGB': return 'GB';
         case 'diskGB': return 'GB';
@@ -70,8 +62,8 @@ const getSpecUnit = (specName) => { /* ... no change ... */
         default: return '';
     }
 };
-// --- Sub-Components ---
-const LTOPanel = () => { /* ... no change ... */
+
+const LTOPanel = () => { 
     return (
     <div className="flex flex-col items-center justify-center p-8 bg-[#141418] border border-[#7964e4] rounded-lg text-center w-full">
         <h3 className="text-2xl font-bold text-white mb-4">Limited Time Offers</h3>
@@ -87,10 +79,16 @@ const LTOPanel = () => { /* ... no change ... */
     </div>
     );
 };
-const IPDisplay = () => { /* ... no change ... */
+const IPDisplay = ({ plain }) => { 
  return (
   <div className="flex items-center gap-1">
-    <span><span className="font-bold text-[#7964e4]">1</span> IPv4 & <span className="font-bold text-[#7964e4]">/64</span> IPv6 Block</span>
+    <span>
+      {plain ? (
+        "1 IPv4 & /64 IPv6 Block"
+      ) : (
+        <><span className="font-bold text-[#7964e4]">1</span> IPv4 & <span className="font-bold text-[#7964e4]">/64</span> IPv6 Block</>
+      )}
+    </span>
     <div className="relative group">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -108,7 +106,7 @@ const IPDisplay = () => { /* ... no change ... */
   </div>
  );
 };
-const ProcessorInfo = ({ text }) => { /* ... no change ... */
+const ProcessorInfo = ({ text }) => { 
  return (
   <div className="group relative inline-block">
     <span className="text-white/80">{text}</span>
@@ -121,9 +119,9 @@ const ProcessorInfo = ({ text }) => { /* ... no change ... */
   </div>
  );
 };
-const renderSpecIcon = (specName) => { /* ... no change ... */
+const renderSpecIcon = (specName) => { 
     const iconStyle = { width: '20px', height: '20px', fill: 'white' };
-    // SVG paths remain the same...
+
      switch (specName) {
         case 'cpuCores': return <svg style={iconStyle} viewBox="0 0 20 20"><path d="M14 6H6V14H14V6Z" /><path fillRule="evenodd" clipRule="evenodd" d="M9.25 3V1.75C9.25 1.33579 9.58579 1 10 1C10.4142 1 10.75 1.33579 10.75 1.75V3H12.25V1.75C12.25 1.33579 12.5858 1 13 1C13.4142 1 13.75 1.33579 13.75 1.75V3H14.25C15.7688 3 17 4.23122 17 5.75V6.25H18.25C18.6642 6.25 19 6.58579 19 7C19 7.41421 18.6642 7.75 18.25 7.75H17V9.25H18.25C18.6642 9.25 19 9.58579 19 10C19 10.4142 18.6642 10.75 18.25 10.75H17V12.25H18.25C18.6642 12.25 19 12.5858 19 13C19 13.4142 18.6642 13.75 18.25 13.75H17V14.25C17 15.7688 15.7688 17 14.25 17H13.75V18.25C13.75 18.6642 13.4142 19 13 19C12.5858 19 12.25 18.6642 12.25 18.25V17H10.75V18.25C10.75 18.6642 10.4142 19 10 19C9.58579 19 9.25 18.6642 9.25 18.25V17H7.75V18.25C7.75 18.6642 7.41421 19 7 19C6.58579 19 6.25 18.6642 6.25 18.25V17H5.75C4.23122 17 3 15.7688 3 14.25V13.75H1.75C1.33579 13.75 1 13.4142 1 13C1 12.5858 1.33579 12.25 1.75 12.25H3V10.75H1.75C1.33579 10.75 1 10.4142 1 10C1 9.58579 1.33579 9.25 1.75 9.25H3V7.75H1.75C1.33579 7.75 1 7.41421 1 7C1 6.58579 1.33579 6.25 1.75 6.25H3V5.75C3 4.23122 4.23122 3 5.75 3H6.25V1.75C6.25 1.33579 6.58579 1 7 1C7.41421 1 7.75 1.33579 7.75 1.75V3H9.25ZM4.5 5.75C4.5 5.05964 5.05964 4.5 5.75 4.5H14.25C14.9404 4.5 15.5 5.05964 15.5 5.75V14.25C15.5 14.9404 14.9404 15.5 14.25 15.5H5.75C5.05964 15.5 4.5 14.9404 4.5 14.25V5.75Z" /></svg>;
         case 'memoryGB': return <svg style={iconStyle} viewBox="0 0 20 20"><path d="M4.63196 3.53326C4.84778 2.63402 5.65196 2 6.57674 2H13.4231C14.3479 2 15.1521 2.63401 15.3679 3.53325L17.3441 11.7674C16.9303 11.5951 16.4762 11.5 15.9999 11.5H3.99994C3.52368 11.5 3.06963 11.5951 2.65576 11.7674L4.63196 3.53326Z" /><path fillRule="evenodd" clipRule="evenodd" d="M4 13C2.89543 13 2 13.8954 2 15C2 16.1046 2.89543 17 4 17H16C17.1046 17 18 16.1046 18 15C18 13.8954 17.1046 13 16 13H4ZM15.2402 15C15.2402 14.5858 15.576 14.25 15.9902 14.25H16.0002C16.4144 14.25 16.7502 14.5858 16.7502 15V15.01C16.7502 15.4242 16.4144 15.76 16.0002 15.76H15.9902C15.576 15.76 15.2402 15.4242 15.2402 15.01V15ZM12.9902 14.25C12.576 14.25 12.2402 14.5858 12.2402 15V15.01C12.2402 15.4242 12.576 15.76 12.9902 15.76H13.0002C13.4144 15.76 13.7502 15.4242 13.7502 15.01V15C13.7502 14.5858 13.4144 14.25 13.0002 14.25H12.9902Z" /></svg>;
@@ -134,10 +132,23 @@ const renderSpecIcon = (specName) => { /* ... no change ... */
     }
 };
 
-// --- Main Pricing Component ---
+// Add this CSS animation at the top of your component or in your global CSS
+const floatingAnimation = `
+  @keyframes floating {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+`;
 
 const PricingSection = () => {
-    // State Variables - Initialize with the first Value plan
+
     const [selectedCategory, setSelectedCategory] = useState('value');
     const [cpuCores, setCpuCores] = useState(valuePlans[0].cores);
     const [memoryGB, setMemoryGB] = useState(valuePlans[0].memory);
@@ -145,7 +156,6 @@ const PricingSection = () => {
     const [bandwidthTB, setBandwidthTB] = useState(valuePlans[0].bandwidth);
     const [totalPrice, setTotalPrice] = useState(valuePlans[0].price);
 
-    // Effect to reset sliders/specs to the LOWEST plan when category changes
     useEffect(() => {
         let initialPlan;
         if (selectedCategory === 'value') {
@@ -164,33 +174,25 @@ const PricingSection = () => {
         }
     }, [selectedCategory]);
 
-    // Update slider values and price, snapping below minimum
     const handleSliderChange = (spec, value) => {
         const currentPlans = selectedCategory === 'ryzen' ? premiumPlans : valuePlans;
         if (!currentPlans || currentPlans.length === 0) return;
 
         let intValue = parseInt(value, 10);
         const specKey = spec === 'cpuCores' ? 'cores' : spec === 'memoryGB' ? 'memory' : spec === 'diskGB' ? 'storage' : 'bandwidth';
-        const minPlanValue = currentPlans[0]?.[specKey] ?? 0; // Smallest value for *this spec* in plans
+        const minPlanValue = currentPlans[0]?.[specKey] ?? 0; 
 
-        // --- Snapping Logic ---
         if (intValue < minPlanValue) {
-            // If user drags below the minimum available, force to minimum plan
-            intValue = minPlanValue; // Adjust the target value
+
+            intValue = minPlanValue; 
         }
-        // --- End Snapping Logic ---
 
-
-        // Find the first plan matching or exceeding the (potentially adjusted) intValue
         let nextPlan = currentPlans.find(plan => plan[specKey] >= intValue);
 
-
-        // If slider goes beyond max plan, snap to the largest plan
         if (!nextPlan) {
             nextPlan = currentPlans[currentPlans.length - 1];
         }
 
-        // Update state based on the determined nextPlan
         if (nextPlan) {
              setCpuCores(nextPlan.cores);
              setMemoryGB(nextPlan.memory);
@@ -200,23 +202,17 @@ const PricingSection = () => {
         }
     };
 
-
-    // << --- THIS IS THE UPDATED FUNCTION --- >>
-    // Render individual spec slider
     const renderSlider = (specName, currentValue) => {
         const plans = selectedCategory === 'ryzen' ? premiumPlans : valuePlans;
         if (!plans || plans.length === 0) return null;
 
         const specKey = specName === 'cpuCores' ? 'cores' : specName === 'memoryGB' ? 'memory' : specName === 'diskGB' ? 'storage' : 'bandwidth';
 
-        // Min/Max for the VISUAL TRACK (0 to absolute max)
         const trackMin = sliderTrackRanges[specName]?.min ?? 0;
-        const trackMax = sliderTrackRanges[specName]?.max ?? Math.max(...plans.map(p => p[specKey])); // Fallback to plan max
+        const trackMax = sliderTrackRanges[specName]?.max ?? Math.max(...plans.map(p => p[specKey])); 
 
-        // The actual value/position of the thumb (comes from state)
         const sliderValue = currentValue;
 
-        // Simple step logic (can be refined)
         const step = (specName === 'memoryGB' && trackMax > trackMin) ? 2 : 1;
 
         return (
@@ -225,15 +221,15 @@ const PricingSection = () => {
                     {renderSpecIcon(specName)}
                     <div className="flex flex-row justify-between items-center w-full">
                         <span>{specNameToDisplayName(specName)}</span>
-                        {/* Display the actual current value from state */}
+                        {}
                         <span>{currentValue}{getSpecUnit(specName)}</span>
                     </div>
                 </div>
                 <input
                     type="range"
-                    min={trackMin} // Track starts at 0
-                    max={trackMax} // Track ends at absolute max
-                    value={sliderValue} // Thumb position reflects current state value
+                    min={trackMin} 
+                    max={trackMax} 
+                    value={sliderValue} 
                     step={step}
                     className="w-full h-2 appearance-none focus:outline-none focus:ring-0 cursor-pointer"
                     style={{
@@ -241,7 +237,7 @@ const PricingSection = () => {
                             #7964e4 0%,
                             #7964e4 ${trackMax === trackMin ? 0 : ((sliderValue - trackMin) / (trackMax - trackMin)) * 100}%,
                             #2b2b2b ${trackMax === trackMin ? 0 : ((sliderValue - trackMin) / (trackMax - trackMin)) * 100}%,
-                            #2b2b2b 100%)`, // Gradient based on 0-max track range
+                            #2b2b2b 100%)`, 
                         height: '8px',
                         borderRadius: '4px'
                     }}
@@ -251,9 +247,7 @@ const PricingSection = () => {
         );
     };
 
-
-    // Render Node Hardware Specs Panel
-    const renderNodeSpecs = () => { /* ... no change ... */
+    const renderNodeSpecs = () => { 
         const currentSpecs = selectedCategory === 'ryzen' ? premiumNodeSpecs : valueNodeSpecs;
         return (
             <div className="bg-[#141418] p-4 md:p-6 rounded-lg border border-[#7964e4] w-[90%] mx-auto md:w-full h-full shadow-lg flex flex-col">
@@ -262,6 +256,23 @@ const PricingSection = () => {
                         {selectedCategory === 'ryzen' ? 'Premium Node Specs' : 'Value Node Specs'}
                     </h3>
                 </div>
+
+                {/* CPU Image */}
+                <div className="relative w-full flex justify-center mb-6">
+                    <style>{floatingAnimation}</style>
+                    <div className="relative w-[16rem] h-[16rem] flex items-center justify-center">
+                        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#7964e4]/20 to-[#656fe4]/20 animate-pulse blur-xl"></div>
+                        <image 
+                            src={selectedCategory === 'ryzen' ? '/amdryzen7950x.png' : '/amdepyc7542edit.png'} 
+                            alt={selectedCategory === 'ryzen' ? 'AMD Ryzen 7950X' : 'AMD EPYC 7542'}
+                            className="relative w-[20rem] h-[20rem] object-contain"
+                            style={{
+                                animation: 'floating 3s ease-in-out infinite',
+                            }}
+                         />
+                    </div>
+                </div>
+
                 <div className="flex flex-col gap-6 flex-grow">
                     <div className="space-y-2">
                         <h4 className="text-white/90 font-semibold text-sm md:text-base">
@@ -278,7 +289,7 @@ const PricingSection = () => {
                         <h4 className="text-white/90 font-semibold text-sm md:text-base">Network</h4>
                         <div className="pl-4 space-y-1.5 text-sm md:text-base">
                             <p className="text-white/80">{currentSpecs.network}</p>
-                            <IPDisplay />
+                            <IPDisplay plain={true} />
                         </div>
                     </div>
                 </div>
@@ -286,8 +297,7 @@ const PricingSection = () => {
         );
     };
 
-    // Render Main Pricing Area (Sliders, Summary, Buttons)
-    const renderPricingContent = () => { /* ... no change needed here ... */
+    const renderPricingContent = () => { 
         const isPremium = selectedCategory === 'ryzen';
         const currentPlans = isPremium ? premiumPlans : valuePlans;
         const baseTitle = isPremium ? 'Premium KVM VPS' : 'Value KVM VPS';
@@ -305,7 +315,7 @@ const PricingSection = () => {
 
         return (
             <div className="flex flex-col gap-8 w-[90%] mx-auto md:w-full">
-                {/* Header Section */}
+                {}
                 <div className="bg-[#141418] p-4 md:p-6 rounded-lg border border-[#7964e4]">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                         <div className="flex flex-col md:flex-row md:items-center gap-4">
@@ -333,8 +343,8 @@ const PricingSection = () => {
                     </div>
                 </div>
 
-                {/* Sliders Section - Pass current state values */}
-                <div className="bg-[#141418] p-6 rounded-lg">
+                {}
+                <div className="bg-[#141418] p-6 rounded-lg border border-[#7964e4]">
                     <div className="flex flex-col gap-4">
                         {renderSlider('cpuCores', cpuCores)}
                         {renderSlider('memoryGB', memoryGB)}
@@ -343,24 +353,24 @@ const PricingSection = () => {
                     </div>
                 </div>
 
-                {/* Specs Grid */}
+                {}
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                    <div className="flex items-center p-3 bg-[#141418] rounded">
+                    <div className="flex items-center p-3 bg-[#141418] rounded border border-[#7964e4]">
                         <span><span className="font-bold text-[#7964e4]">{cpuCores}</span> vCPU</span>
                     </div>
-                    <div className="flex items-center p-3 bg-[#141418] rounded">
+                    <div className="flex items-center p-3 bg-[#141418] rounded border border-[#7964e4]">
                         <span><span className="font-bold text-[#7964e4]">{memoryGB}GB</span> Memory</span>
                     </div>
-                    <div className="flex items-center p-3 bg-[#141418] rounded">
+                    <div className="flex items-center p-3 bg-[#141418] rounded border border-[#7964e4]">
                         <span><span className="font-bold text-[#7964e4]">{diskGB}GB</span> {storageTypeLabel}</span>
                     </div>
-                    <div className="flex items-center p-3 bg-[#141418] rounded">
+                    <div className="flex items-center p-3 bg-[#141418] rounded border border-[#7964e4]">
                         <span><span className="font-bold text-[#7964e4]">{bandwidthTB}TB</span> Bandwidth</span>
                     </div>
-                    <div className="flex items-center p-3 bg-[#141418] rounded">
-                        <span><span className="font-bold text-[#7964e4]">10Gbps</span> Port</span>
+                    <div className="flex items-center p-3 bg-[#141418] rounded border border-[#7964e4]">
+                        <span><span className="font-bold text-[#7964e4]">10Gbps</span> Shared Uplink</span>
                     </div>
-                    <div className="flex items-center p-3 bg-[#141418] rounded">
+                    <div className="flex items-center p-3 bg-[#141418] rounded border border-[#7964e4]">
                         <IPDisplay />
                     </div>
                 </div>
@@ -368,11 +378,10 @@ const PricingSection = () => {
         );
     };
 
-    // --- Main Render --- (No changes needed here)
     return (
         <div className="bg-zinc-950 text-white">
             <div className="p-4 md:p-5 py-12 md:py-24 container mx-auto flex flex-col gap-8 px-4 md:px-[44px]" id="Plans">
-                {/* Category Toggle Switch */}
+                {}
                 <div className="w-[90%] xl:w-1/3 mx-auto md:mx-0">
                     <h4 className="text-white/90 font-semibold text-sm md:text-base mb-3">Select VPS Type</h4>
                     <div className="bg-[#141418] p-1.5 rounded-lg inline-flex w-full border border-[#7964e4] shadow-[0_0_20px_rgba(121,100,228,0.2)]">
@@ -382,8 +391,8 @@ const PricingSection = () => {
                                 className={`
                                     flex-1 px-4 py-2.5 rounded-md font-medium transition-all duration-300 text-sm
                                     ${selectedCategory === category.value
-                                        ? 'bg-[#7964e4] text-white shadow-[0_0_15px_rgba(121,100,228,0.5)] scale-105 font-bold'
-                                        : 'text-white/80 hover:text-white hover:bg-white/5'
+                                        ? 'bg-gradient-to-r from-[#656fe4] to-[#7964e4] text-white shadow-[0_0_15px_rgba(121,100,228,0.3)] scale-105'
+                                        : 'text-white/60'
                                     }
                                 `}
                                 onClick={() => setSelectedCategory(category.value)}
@@ -394,7 +403,7 @@ const PricingSection = () => {
                     </div>
                 </div>
 
-                {/* Conditional Content */}
+                {}
                 {selectedCategory === 'lto' ? (
                     <LTOPanel />
                 ) : (

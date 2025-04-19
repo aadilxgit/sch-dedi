@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 const categoriesData = [
   { name: 'Value', value: 'value' },
@@ -262,13 +263,16 @@ const PricingSection = () => {
                     <style>{floatingAnimation}</style>
                     <div className="relative w-[16rem] h-[16rem] flex items-center justify-center">
                         <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#7964e4]/20 to-[#656fe4]/20 animate-pulse blur-xl"></div>
-                        <image 
+                        <Image 
                             src={selectedCategory === 'ryzen' ? '/amdryzen7950x.png' : '/amdepyc7542edit.png'} 
                             alt={selectedCategory === 'ryzen' ? 'AMD Ryzen 7950X' : 'AMD EPYC 7542'}
+                            width={320}
+                            height={320}
                             className="relative w-[20rem] h-[20rem] object-contain"
                             style={{
                                 animation: 'floating 3s ease-in-out infinite',
                             }}
+                            priority
                          />
                     </div>
                 </div>
